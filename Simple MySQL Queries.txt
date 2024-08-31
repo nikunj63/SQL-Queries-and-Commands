@@ -1,0 +1,57 @@
+mysql> create database demo;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| demo               |
+| information_schema |
+| mysql              |
+| performance_schema |
+
+
+mysql> use demo;
+Database changed
+
+
+mysql> create table student(name varchar(30),id int not null primary key,address varchar(50),marks int);
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> desc student;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| name    | varchar(30) | YES  |     | NULL    |       |
+| id      | int         | NO   | PRI | NULL    |       |
+| address | varchar(50) | YES  |     | NULL    |       |
+| marks   | int         | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+
+mysql> insert into student(name,id,address,marks)values('Nikunj',12,'Lucknow',83);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into student values('Rakesh',13,'Lucknow',60);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from student;
++--------+----+---------+-------+
+| name   | id | address | marks |
++--------+----+---------+-------+
+| Nikunj | 12 | Lucknow |    83 |
+| Rakesh | 13 | Lucknow |    60 |
++--------+----+---------+-------+
+
+mysql> insert into student values ('Rishabh',14,'Lucknow',90),('Varun',15,'Hardoi',45);
+Query OK, 2 rows affected (0.01 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> select * from student;
++---------+----+---------+-------+
+| name    | id | address | marks |
++---------+----+---------+-------+
+| Nikunj  | 12 | Lucknow |    83 |
+| Rakesh  | 13 | Lucknow |    60 |
+| Rishabh | 14 | Lucknow |    90 |
+| Varun   | 15 | Hardoi  |    45 |
++---------+----+---------+-------+
