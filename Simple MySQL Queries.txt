@@ -55,3 +55,68 @@ mysql> select * from student;
 | Rishabh | 14 | Lucknow |    90 |
 | Varun   | 15 | Hardoi  |    45 |
 +---------+----+---------+-------+
+
+mysql> select * from student where address='Lucknow';
++---------+----+---------+-------+
+| name    | id | address | marks |
++---------+----+---------+-------+
+| Nikunj  | 12 | Lucknow |    83 |
+| Rakesh  | 13 | Lucknow |    60 |
+| Rishabh | 14 | Lucknow |    90 |
++---------+----+---------+-------+
+
+mysql> update student set address='Rudrapur' where id=14;
+Query OK, 1 row affected (0.02 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from student;
++---------+----+----------+-------+
+| name    | id | address  | marks |
++---------+----+----------+-------+
+| Nikunj  | 12 | Lucknow  |    83 |
+| Rakesh  | 13 | Lucknow  |    60 |
+| Rishabh | 14 | Rudrapur |    90 |
+| Varun   | 15 | Hardoi   |    45 |
+
+mysql> alter table student add mobNo int;
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> select * from student;
++---------+----+----------+-------+-------+
+| name    | id | address  | marks | mobNo |
++---------+----+----------+-------+-------+
+| Nikunj  | 12 | Lucknow  |    83 |  NULL |
+| Rakesh  | 13 | Lucknow  |    60 |  NULL |
+| Rishabh | 14 | Rudrapur |    90 |  NULL |
+| Varun   | 15 | Hardoi   |    45 |  NULL |
++---------+----+----------+-------+-------+
+
+mysql> select sum(marks) from student;
++------------+
+| sum(marks) |
++------------+
+|        278 |
++------------+
+
+
+mysql> select avg(marks) from student;
++------------+
+| avg(marks) |
++------------+
+|    69.5000 |
++------------+
+
+mysql> select count(name) from student;
++-------------+
+| count(name) |
++-------------+
+|           4 |
++-------------+
+
+
+mysql> select max(marks) from student;
++------------+
+| max(marks) |
++------------+
+|         90 |
++------------+
